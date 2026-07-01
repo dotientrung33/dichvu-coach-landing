@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #020817;
+  color: #EAF2FF;
+  font-family: Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+summary,
+input,
+textarea,
+select {
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #F5C76A;
+  outline-offset: 4px;
+}
+
+@layer components {
+  .section-shell {
+    width: calc(100% - 32px);
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 640px) {
+    .section-shell {
+      width: calc(100% - 40px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-shell {
+      width: calc(100% - 48px);
+    }
+  }
+
+  .premium-panel {
+    background: linear-gradient(180deg, #071B3F 0%, #04122C 100%);
+    border: 1px solid rgba(0, 163, 255, 0.18);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    @apply backdrop-blur-xl;
+  }
+
+  .light-panel {
+    background: linear-gradient(180deg, #071B3F 0%, #04122C 100%);
+    border: 1px solid rgba(0, 163, 255, 0.18);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .gold-button {
+    background: linear-gradient(135deg, #FFE7A3 0%, #D9A441 45%, #A86F12 100%);
+    color: #020817;
+    box-shadow: 0 14px 34px rgba(217, 164, 65, 0.28);
+    min-height: 48px;
+    @apply inline-flex items-center justify-center font-bold transition duration-200 ease-out active:translate-y-0;
+  }
+
+  .gold-button:hover {
+    background: linear-gradient(135deg, #FFF1C2 0%, #F0BE55 45%, #A86F12 100%);
+    box-shadow: 0 18px 42px rgba(217, 164, 65, 0.36);
+    transform: translateY(-2px);
+  }
+
+  .gold-button:active {
+    box-shadow: 0 8px 20px rgba(217, 164, 65, 0.22);
+  }
+
+  .outline-button {
+    border: 1px solid rgba(0, 163, 255, 0.24);
+    color: #EAF2FF;
+    min-height: 48px;
+    @apply inline-flex items-center justify-center transition duration-200 ease-out active:translate-y-0;
+  }
+
+  .outline-button:hover {
+    border-color: rgba(245, 199, 106, 0.42);
+    background: rgba(245, 199, 106, 0.06);
+    color: #F5C76A;
+    transform: translateY(-2px);
+  }
+
+  .dark-section {
+    background:
+      radial-gradient(circle at 80% 20%, rgba(0, 163, 255, 0.22), transparent 28%),
+      radial-gradient(circle at 15% 80%, rgba(0, 75, 180, 0.28), transparent 32%),
+      linear-gradient(180deg, #061A45 0%, #020817 100%);
+  }
+
+  .gold-text {
+    @apply bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+
+  .electric-card {
+    background: linear-gradient(180deg, #071B3F 0%, #04122C 100%);
+    border: 1px solid rgba(0, 163, 255, 0.18);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .electric-card:hover {
+    border-color: rgba(245, 199, 106, 0.42);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.42),
+      0 0 28px rgba(0, 163, 255, 0.18);
+    transform: translateY(-4px);
+  }
+
+  .electric-card:focus-within {
+    border-color: rgba(245, 199, 106, 0.42);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.42),
+      0 0 24px rgba(0, 163, 255, 0.14);
+  }
+
+  .electric-input {
+    @apply rounded-xl px-4 py-3 text-white outline-none transition;
+    background: #071B3F;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .electric-input::placeholder {
+    color: #9FB0C8;
+  }
+
+  .electric-input:focus {
+    border-color: #F5C542;
+    box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.18);
+  }
+
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .certificates-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .certificates-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
