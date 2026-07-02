@@ -28,6 +28,8 @@ export default function RegisterForm() {
   const [form, setForm] = useState<FormState>(initialFormState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const publicPackages = useMemo(
     () => coachingPackages.filter((pkg) => pkg.isPublic && pkg.showInForm),
@@ -37,6 +39,7 @@ export default function RegisterForm() {
   const updateField = (field: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
+    setSubmitError("");
     setSubmitted(false);
   };
 
@@ -59,15 +62,49 @@ export default function RegisterForm() {
     return Object.keys(nextErrors).length === 0;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitError("");
 
     if (!validate()) {
       return;
     }
 
-    // TODO: Connect form submission to Google Sheet or backend endpoint.
-    setSubmitted(true);
+    // Google Apps Script Web App often needs no-cors when called directly from a frontend MVP.
+    const endpoint = process.env.NEXT_PUBLIC_GOOGLE_SHEET_ENDPOINT;
+
+    if (!endpoint) {
+      setSubmitError("Chưa cấu hình endpoint nhận dữ liệu. Vui lòng liên hệ Hotline/Zalo.");
+      return;
+    }
+
+    const selectedPackage = publicPackages.find((pkg) => pkg.id === form.packageId);
+    const payload = {
+      fullName: form.name.trim(),
+      phone: form.contact.trim(),
+      email: form.email.trim(),
+      packageInterest: selectedPackage
+        ? `${selectedPackage.name} - ${selectedPackage.price}`
+        : form.packageId,
+      currentNeed: form.currentNeed.trim(),
+      source: "Landing Page Coaching",
+    };
+
+    try {
+      setIsSubmitting(true);
+
+      await fetch(endpoint, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(payload),
+      });
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ Hotline/Zalo.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -198,8 +235,18 @@ export default function RegisterForm() {
           />
         </label>
 
-        <button className="gold-button mt-1 rounded-full px-6 py-4" type="submit">
-          {register.submitLabel}
+        {submitError ? (
+          <div className="rounded-2xl border border-gold-300/30 bg-gold-300/10 p-4 text-sm leading-6 text-gold-300">
+            {submitError}
+          </div>
+        ) : null}
+
+        <button
+          className="gold-button mt-1 rounded-full px-6 py-4 disabled:cursor-not-allowed disabled:opacity-65"
+          type="submit"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Đang gửi..." : register.submitLabel}
         </button>
       </div>
     </form>
