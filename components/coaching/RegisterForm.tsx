@@ -2,14 +2,15 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { coachingContent } from "@/data/coachingContent";
+import { contactInfo } from "@/data/contact";
 import { coachingPackages } from "@/data/coachingPackages";
 
 type FormState = {
   name: string;
   contact: string;
+  email: string;
   packageId: string;
-  issue: string;
-  need: string;
+  currentNeed: string;
 };
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
@@ -17,9 +18,9 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 const initialFormState: FormState = {
   name: "",
   contact: "",
+  email: "",
   packageId: "goi-thau-hieu-chuyen-sau",
-  issue: "",
-  need: coachingContent.register.needs[0],
+  currentNeed: "",
 };
 
 export default function RegisterForm() {
@@ -50,8 +51,8 @@ export default function RegisterForm() {
       nextErrors.contact = register.validation.contact;
     }
 
-    if (!form.issue.trim()) {
-      nextErrors.issue = register.validation.issue;
+    if (!form.packageId.trim()) {
+      nextErrors.packageId = "Vui lòng chọn gói quan tâm.";
     }
 
     setErrors(nextErrors);
@@ -65,9 +66,69 @@ export default function RegisterForm() {
       return;
     }
 
-    // Submission integration point for Google Sheet API or a backend endpoint.
+    // TODO: Connect form submission to Google Sheet or backend endpoint.
     setSubmitted(true);
   };
+
+  if (submitted) {
+    return (
+      <div className="electric-card rounded-[24px] border-gold-300/25 p-5 sm:p-7">
+        <div className="grid gap-4">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gold-300">
+            Đã ghi nhận thông tin
+          </p>
+          <h3 className="text-[24px] font-semibold leading-tight text-white sm:text-[28px]">
+            Cảm ơn bạn đã gửi thông tin đăng ký.
+          </h3>
+          <p className="text-[16px] leading-7 text-[#EAF2FF]">
+            Đội ngũ Mr. Thấu Hiểu sẽ sớm liên hệ lại với bạn để xác nhận nhu
+            cầu và gợi ý hình thức Coaching phù hợp.
+          </p>
+          <div className="rounded-2xl border border-[rgba(0,163,255,0.18)] bg-[#04122C]/78 p-4">
+            <p className="text-sm font-semibold text-[#AFC2E6]">Hotline</p>
+            <a
+              href={contactInfo.phoneHref}
+              className="mt-1 inline-flex text-[22px] font-bold text-gold-300 transition hover:text-gold-200"
+            >
+              {contactInfo.phone}
+            </a>
+          </div>
+          <div className="mt-1 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={contactInfo.zaloUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(0,163,255,0.22)] bg-[#071B3F]/75 px-4 py-3 text-sm font-bold text-[#EAF2FF] transition hover:border-gold-300/35 hover:bg-gold-300/10"
+            >
+              <img
+                src={contactInfo.icons.zalo}
+                alt="Zalo"
+                width={22}
+                height={22}
+                className="h-[22px] w-[22px] object-contain"
+              />
+              Nhắn Zalo ngay
+            </a>
+            <a
+              href={contactInfo.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(0,163,255,0.22)] bg-[#071B3F]/75 px-4 py-3 text-sm font-bold text-[#EAF2FF] transition hover:border-gold-300/35 hover:bg-gold-300/10"
+            >
+              <img
+                src={contactInfo.icons.facebook}
+                alt="Facebook"
+                width={22}
+                height={22}
+                className="h-[22px] w-[22px] object-contain"
+              />
+              Theo dõi Fanpage
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form
@@ -77,7 +138,7 @@ export default function RegisterForm() {
     >
       <div className="grid gap-4">
         <label className="grid gap-2 text-sm font-semibold text-[#EAF2FF]">
-          {register.labels.name}
+          Họ và tên *
           <input
             value={form.name}
             onChange={(event) => updateField("name", event.target.value)}
@@ -88,7 +149,7 @@ export default function RegisterForm() {
         </label>
 
         <label className="grid gap-2 text-sm font-semibold text-[#EAF2FF]">
-          {register.labels.contact}
+          Số điện thoại/Zalo *
           <input
             value={form.contact}
             onChange={(event) => updateField("contact", event.target.value)}
@@ -99,7 +160,18 @@ export default function RegisterForm() {
         </label>
 
         <label className="grid gap-2 text-sm font-semibold text-[#EAF2FF]">
-          {register.labels.package}
+          Email nhận tài liệu nếu có
+          <input
+            type="email"
+            value={form.email}
+            onChange={(event) => updateField("email", event.target.value)}
+            className="electric-input"
+            placeholder="email@example.com"
+          />
+        </label>
+
+        <label className="grid gap-2 text-sm font-semibold text-[#EAF2FF]">
+          Bạn quan tâm gói nào? *
           <select
             value={form.packageId}
             onChange={(event) => updateField("packageId", event.target.value)}
@@ -111,50 +183,20 @@ export default function RegisterForm() {
               </option>
             ))}
           </select>
+          {errors.packageId ? (
+            <span className="text-xs text-gold-300">{errors.packageId}</span>
+          ) : null}
         </label>
 
         <label className="grid gap-2 text-sm font-semibold text-[#EAF2FF]">
-          {register.labels.issue}
+          Nhu cầu hiện tại của bạn
           <textarea
-            value={form.issue}
-            onChange={(event) => updateField("issue", event.target.value)}
+            value={form.currentNeed}
+            onChange={(event) => updateField("currentNeed", event.target.value)}
             className="electric-input min-h-28"
             placeholder={register.placeholders.issue}
           />
-          {errors.issue ? <span className="text-xs text-gold-300">{errors.issue}</span> : null}
         </label>
-
-        <fieldset className="grid gap-2 text-sm font-semibold text-[#EAF2FF]">
-          <legend>{register.labels.need}</legend>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {register.needs.map((need) => (
-              <label
-                key={need}
-                className={`cursor-pointer rounded-xl border px-4 py-3 text-center text-sm font-semibold transition ${
-                  form.need === need
-                    ? "border-gold-400/45 bg-gold-400/12 text-gold-400"
-                    : "border-[rgba(0,163,255,0.18)] bg-[#04122C] text-[#EAF2FF] hover:border-gold-400/35"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="need"
-                  value={need}
-                  checked={form.need === need}
-                  onChange={(event) => updateField("need", event.target.value)}
-                  className="sr-only"
-                />
-                {need}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        {submitted ? (
-          <div className="rounded-2xl border border-gold-300/30 bg-gold-300/10 p-4 text-sm leading-6 text-gold-300">
-            {register.successMessage}
-          </div>
-        ) : null}
 
         <button className="gold-button mt-1 rounded-full px-6 py-4" type="submit">
           {register.submitLabel}
