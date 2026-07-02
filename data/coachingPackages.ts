@@ -34,7 +34,8 @@ export const coachingPackages: CoachingPackage[] = [
     showInForm: true,
     groupLabel: "COACHING CÁ NHÂN",
     name: "Gói Khám Phá",
-    price: "499.000đ",
+    originalPrice: "999.000 VNĐ",
+    price: "499.000 VNĐ",
     positioning: "Nhìn rõ vấn đề và hướng đi ban đầu",
     compactAudience:
       "Dành cho người đang rối, bế tắc hoặc cần một góc nhìn mới cho vấn đề hiện tại.",
@@ -71,7 +72,7 @@ export const coachingPackages: CoachingPackage[] = [
     showInForm: true,
     groupLabel: "COACHING ĐỊNH HƯỚNG",
     name: "Gói Định Hướng & Vẽ Lộ Trình",
-    price: "1.499.000đ",
+    price: "1.499.000 VNĐ",
     positioning: "Vẽ con đường rõ ràng — Tự tin bước đi và biến ước mơ thành hiện thực",
     compactAudience:
       "Người đã sẵn sàng phát triển nhưng chưa biết cách đặt mục tiêu và xây dựng kế hoạch cụ thể.",
@@ -102,7 +103,8 @@ export const coachingPackages: CoachingPackage[] = [
     groupLabel: "COACHING KẾT HỢP BẢN ĐỒ",
     name: "Gói Thấu Hiểu Chuyên Sâu",
     badge: "Được lựa chọn nhiều nhất",
-    price: "2.990.000đ",
+    originalPrice: "3.990.000 VNĐ",
+    price: "2.990.000 VNĐ",
     positioning: "Coaching kết hợp Bản đồ Thấu hiểu Con người",
     compactAudience:
       "Dành cho người muốn hiểu sâu bản thân, mối quan hệ, sự nghiệp hoặc những vấn đề đang lặp lại.",
@@ -151,7 +153,7 @@ export const coachingPackages: CoachingPackage[] = [
     showInForm: true,
     groupLabel: "COACHING ĐỒNG HÀNH 6 THÁNG",
     name: "Gói Vững Vàng & Bền Bỉ – Hành Trình 6 Tháng",
-    price: "4.999.000đ",
+    price: "4.999.000 VNĐ",
     positioning: "Không chỉ là khởi đầu — mà là sự đồng hành bền vững để bạn chuyển hóa thực sự",
     compactAudience:
       "Người mong muốn có lộ trình phát triển dài hạn với sự đồng hành và hỗ trợ sâu sát từ coach, để đảm bảo kết quả không chỉ nhất thời mà duy trì lâu dài.",
@@ -181,8 +183,8 @@ export const coachingPackages: CoachingPackage[] = [
     showInForm: true,
     groupLabel: "COACHING GIA ĐÌNH & MỐI QUAN HỆ",
     name: "Gói Gia Đình Thấu Hiểu",
-    originalPrice: "12.990.000đ",
-    price: "9.990.000đ",
+    originalPrice: "12.990.000 VNĐ",
+    price: "9.990.000 VNĐ",
     positioning:
       "Coaching dành cho gia đình và các mối quan hệ quan trọng",
     compactAudience:
@@ -258,7 +260,7 @@ export const coachingPackages: CoachingPackage[] = [
     showInForm: true,
     groupLabel: "PHIÊN COACHING LẺ",
     name: "Phiên Coaching Lẻ",
-    price: "999.000đ / buổi",
+    price: "999.000 VNĐ / buổi",
     positioning: "Soi chiếu một vấn đề cụ thể",
     compactAudience:
       "Dành cho khách hàng đã từng Coaching, đã có Bản đồ cá nhân hoặc muốn đặt thêm một phiên riêng lẻ để tháo gỡ vấn đề cụ thể.",

@@ -12,7 +12,7 @@ export default function Hero() {
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">
             {hero.eyebrow}
           </p>
-          <h1 className="max-w-4xl text-[34px] font-bold leading-[1.16] text-white sm:text-[46px] sm:leading-[1.12] lg:text-[54px]">
+          <h1 className="max-w-4xl font-[var(--font-playfair-display)] text-[34px] font-bold leading-[1.15] tracking-normal text-white sm:text-[42px] sm:leading-[1.12] lg:text-[50px] lg:leading-[1.1]">
             {hero.title}
           </h1>
           {hero.subheadline ? (

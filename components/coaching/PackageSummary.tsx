@@ -40,7 +40,7 @@ function PackagePrice({ pkg }: { pkg: CoachingPackage }) {
   return (
     <div className="grid gap-1 lg:justify-items-end">
       {pkg.originalPrice ? (
-        <p className="text-base font-semibold leading-tight text-[#AFC2E6] line-through lg:text-right">
+        <p className="text-base font-semibold leading-tight text-[#AFC2E6] line-through sm:text-lg lg:text-right">
           {pkg.originalPrice}
         </p>
       ) : null}
