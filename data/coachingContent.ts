@@ -281,7 +281,8 @@ export const coachingContent = {
   },
   contactButtons: {
     zalo: "Chat Zalo",
-    facebook: "Nhắn Facebook",
+    messenger: "Nhắn Messenger",
+    facebook: "Theo dõi Fanpage",
   },
   footer: {
     copyright: "© 2026 Mr. Thấu Hiểu. All rights reserved.",
