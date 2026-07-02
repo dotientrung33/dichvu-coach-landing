@@ -19,6 +19,7 @@ export type CoachingPackage = {
   toolsTitle?: string;
   toolsIntro?: string;
   toolsItems?: string[];
+  note?: string;
   expectedResultTitle: string;
   expectedResult: string;
   cta: string;
@@ -71,28 +72,26 @@ export const coachingPackages: CoachingPackage[] = [
     groupLabel: "COACHING ĐỊNH HƯỚNG",
     name: "Gói Định Hướng & Vẽ Lộ Trình",
     price: "1.499.000đ",
-    positioning: "Làm rõ vấn đề và xác định hướng đi phù hợp",
+    positioning: "Vẽ con đường rõ ràng — Tự tin bước đi và biến ước mơ thành hiện thực",
     compactAudience:
-      "Dành cho người đang có nhiều lựa chọn, nhiều băn khoăn hoặc chưa biết nên bắt đầu từ đâu.",
-    compactMeta: "01 phiên Coaching chuyên sâu · 90-120 phút",
+      "Người đã sẵn sàng phát triển nhưng chưa biết cách đặt mục tiêu và xây dựng kế hoạch cụ thể.",
+    compactMeta: "01 buổi coaching 1:1 · 90–120 phút · Đồng hành hỏi đáp 03 tháng",
     detailAudienceTitle: "Dành cho ai?",
-    fitItems: [
-      "Bạn đang đứng trước một quyết định quan trọng",
-      "Bạn có nhiều lựa chọn nhưng chưa biết đâu là hướng phù hợp",
-      "Bạn thấy mình đang lặp lại một vấn đề nhưng chưa rõ nguyên nhân",
-      "Bạn muốn có một lộ trình hành động rõ ràng hơn sau phiên Coaching",
-    ],
+    detailAudienceIntro:
+      "Người đã sẵn sàng phát triển nhưng chưa biết cách đặt mục tiêu và xây dựng kế hoạch cụ thể.",
+    fitItems: [],
     includedTitle: "Bạn nhận được gì?",
     includedItems: [
-      "01 phiên Coaching chuyên sâu 90-120 phút",
-      "Làm rõ vấn đề trọng tâm đang cần tháo gỡ",
-      "Phân tích bối cảnh hiện tại và các lựa chọn đang có",
-      "Gợi ý hướng đi phù hợp với nhu cầu, nguồn lực và trạng thái hiện tại",
-      "Xây dựng lộ trình hành động bước đầu sau phiên Coaching",
+      "01 buổi coaching 1:1, 90–120 phút",
+      "Phân tích chuyên sâu 6 chỉ số Ngôi Sao May Mắn: Đường đời, Sứ mệnh, Linh hồn, Liên kết, Chặng và Năm cá nhân",
+      "Hỗ trợ hỏi đáp xuyên suốt 3 tháng sau buổi coaching",
+      "Tặng Ebook cá nhân hóa (PDF) về 6 chỉ số Ngôi Sao May Mắn — tra cứu lại bất cứ lúc nào",
+      "Hỗ trợ thiết lập mục tiêu và xây dựng kế hoạch phát triển bản thân/mối quan hệ rõ ràng",
+      "Hình thức: ONLINE hoặc OFFLINE — linh hoạt theo nhu cầu",
     ],
     expectedResultTitle: "Kết quả mong đợi",
     expectedResult:
-      "Sau phiên Coaching, bạn có thể nhìn rõ vấn đề chính, hiểu đâu là hướng đi phù hợp hơn và có một lộ trình hành động cụ thể để bắt đầu.",
+      "Sau buổi coaching, bạn xác định rõ mục tiêu ngắn hạn — dài hạn, hiểu rõ điểm mạnh và thách thức của bản thân, biết cách tận dụng thời điểm phù hợp, có kế hoạch hành động cụ thể và niềm tin để bắt đầu thực hiện.",
     cta: "Chọn gói này",
   },
   {
@@ -151,30 +150,28 @@ export const coachingPackages: CoachingPackage[] = [
     showOnLanding: true,
     showInForm: true,
     groupLabel: "COACHING ĐỒNG HÀNH 6 THÁNG",
-    name: "Gói Vững Vàng & Bền Bỉ - 6 Tháng",
+    name: "Gói Vững Vàng & Bền Bỉ – Hành Trình 6 Tháng",
     price: "4.999.000đ",
-    positioning: "Đồng hành dài hơn để chuyển hóa bền vững hơn",
+    positioning: "Không chỉ là khởi đầu — mà là sự đồng hành bền vững để bạn chuyển hóa thực sự",
     compactAudience:
-      "Dành cho người cần một lộ trình đồng hành dài hơn để duy trì sự rõ ràng, ổn định cảm xúc và hành động nhất quán.",
-    compactMeta: "03 phiên Coaching · Đồng hành 06 tháng",
+      "Người mong muốn có lộ trình phát triển dài hạn với sự đồng hành và hỗ trợ sâu sát từ coach, để đảm bảo kết quả không chỉ nhất thời mà duy trì lâu dài.",
+    compactMeta: "03 buổi coaching 1:1 · 60–90 phút/buổi · Đồng hành hỏi đáp 06 tháng",
     detailAudienceTitle: "Dành cho ai?",
-    fitItems: [
-      "Bạn đang trong giai đoạn chuyển đổi cá nhân, công việc hoặc mối quan hệ",
-      "Bạn cần người đồng hành để giữ sự rõ ràng và cam kết hành động",
-      "Bạn muốn thay đổi một mô thức cũ nhưng dễ quay lại thói quen quen thuộc",
-      "Bạn cần một lộ trình có theo dõi, phản hồi và điều chỉnh theo thời gian",
-    ],
+    detailAudienceIntro:
+      "Người mong muốn có lộ trình phát triển dài hạn với sự đồng hành và hỗ trợ sâu sát từ coach, để đảm bảo kết quả không chỉ nhất thời mà duy trì lâu dài.",
+    fitItems: [],
     includedTitle: "Bạn nhận được gì?",
     includedItems: [
-      "03 phiên Coaching theo lộ trình",
-      "Làm rõ mục tiêu và vấn đề cốt lõi",
-      "Theo dõi tiến trình thay đổi trong 06 tháng",
-      "Hỗ trợ điều chỉnh góc nhìn và hành động khi gặp vướng mắc",
-      "Đồng hành hỏi đáp trong thời gian triển khai",
+      "3 buổi coaching 1:1, mỗi buổi 60–90 phút",
+      "Coaching chuyên sâu dựa trên bản đồ Map For Success 21 chỉ số, tặng kèm bản đồ giấy/file in màu",
+      "Tài khoản khóa học \"Change for Success\" — 4 bước phát triển bản thân + 2 bài test năng lực",
+      "Hỗ trợ hỏi đáp xuyên suốt 6 tháng",
+      "Tham gia workshop/lớp học cộng đồng Thấu Hiểu Bản Thân",
+      "Hình thức: ONLINE & OFFLINE — tùy theo nhu cầu",
     ],
     expectedResultTitle: "Kết quả mong đợi",
     expectedResult:
-      "Sau chương trình, bạn có thể duy trì sự rõ ràng, ổn định hơn trong hành động và từng bước xây dựng thay đổi bền vững trong cuộc sống hoặc công việc.",
+      "Sau 6 tháng đồng hành, bạn xây dựng được mục tiêu dài hạn rõ ràng, được điều chỉnh lộ trình khi gặp khó khăn, biết cách đo lường tiến trình, duy trì động lực và thói quen phát triển bản thân, không bị bỏ rơi khi tinh thần đi xuống.",
     cta: "Chọn gói này",
   },
   {
@@ -230,11 +227,25 @@ export const coachingPackages: CoachingPackage[] = [
       "Dành cho cá nhân, gia đình hoặc doanh nghiệp cần một lộ trình đồng hành chuyên sâu, linh hoạt và được thiết kế riêng theo nhu cầu thực tế.",
     compactMeta: "Lộ trình cá nhân hóa · Tư vấn riêng theo mục tiêu đồng hành",
     detailAudienceTitle: "Dành cho ai?",
-    fitItems: [],
-    includedTitle: "Bạn nhận được gì?",
-    includedItems: [],
+    fitItems: [
+      "Cá nhân đang ở giai đoạn chuyển đổi lớn trong cuộc sống, sự nghiệp hoặc các mối quan hệ",
+      "Gia đình cần đồng hành sâu để tháo gỡ vấn đề phức tạp và cải thiện kết nối",
+      "Chủ doanh nghiệp, quản lý hoặc đội nhóm cần nâng cao hiệu suất từ sự thấu hiểu con người",
+      "Khách hàng cần một lộ trình riêng, không phù hợp với các gói Coaching cố định",
+    ],
+    includedTitle: "Quyền lợi cơ bản",
+    includedItems: [
+      "Lộ trình Coaching được thiết kế riêng theo nhu cầu thực tế",
+      "Kết hợp Coaching, bản đồ thấu hiểu con người và các công cụ phù hợp",
+      "Đồng hành linh hoạt theo từng giai đoạn",
+      "Hỗ trợ làm rõ vấn đề, mục tiêu, mối quan hệ và hướng hành động",
+      "Ưu tiên trao đổi trực tiếp qua Zalo hoặc Messenger",
+    ],
+    note:
+      "Gói VIP không công khai giá vì lộ trình, thời lượng và phạm vi đồng hành sẽ được cá nhân hóa sau buổi trao đổi ban đầu.",
     expectedResultTitle: "Kết quả mong đợi",
-    expectedResult: "",
+    expectedResult:
+      "Sau quá trình đồng hành, bạn có một không gian soi chiếu đều đặn để nhìn rõ vấn đề, ra quyết định tốt hơn, giữ nhịp phát triển cá nhân và tạo thay đổi bền vững trong cuộc sống, công việc hoặc các mối quan hệ quan trọng.",
     cta: "Trao đổi qua Zalo",
   },
   {

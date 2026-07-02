@@ -178,6 +178,9 @@ function VipCard({ pkg }: { pkg: CoachingPackage }) {
           <p className="mt-3 text-[16px] leading-7 text-[#EAF2FF]">
             {pkg.compactAudience}
           </p>
+          <p className="mt-4 text-[15px] font-semibold leading-6 text-gold-300/90">
+            {pkg.compactMeta}
+          </p>
         </div>
 
         <div className="grid gap-3 lg:justify-items-end">
@@ -203,6 +206,43 @@ function VipCard({ pkg }: { pkg: CoachingPackage }) {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="mt-6 border-t border-[rgba(0,163,255,0.18)] pt-6">
+        {pkg.detailAudienceIntro ? (
+          <p className="max-w-4xl text-[15px] leading-7 text-[#EAF2FF]">
+            {pkg.detailAudienceIntro}
+          </p>
+        ) : null}
+        <div className="mt-5 grid gap-7 lg:grid-cols-2">
+          <div>
+            <h4 className="text-base font-semibold text-gold-300">
+              {pkg.detailAudienceTitle}
+            </h4>
+            <DetailList items={pkg.fitItems} />
+          </div>
+          <div>
+            <h4 className="text-base font-semibold text-gold-300">
+              {pkg.includedTitle}
+            </h4>
+            <DetailList items={pkg.includedItems} />
+          </div>
+        </div>
+        {pkg.note ? (
+          <p className="mt-6 rounded-2xl border border-gold-300/20 bg-[#071B3F]/60 px-4 py-4 text-[15px] font-semibold leading-7 text-[#EAF2FF]">
+            {pkg.note}
+          </p>
+        ) : null}
+        {pkg.expectedResult ? (
+          <div className="mt-6 rounded-2xl border border-gold-300/20 bg-[#071B3F]/60 px-4 py-4">
+            <h4 className="text-base font-semibold text-gold-300">
+              {pkg.expectedResultTitle}
+            </h4>
+            <p className="mt-2 text-[15px] leading-7 text-[#EAF2FF]">
+              {pkg.expectedResult}
+            </p>
+          </div>
+        ) : null}
       </div>
     </article>
   );
@@ -256,11 +296,22 @@ export default function PackageSummary() {
             />
           ))}
 
-          <div>
+          <div className="rounded-[22px] border border-[rgba(217,164,65,0.65)] bg-[linear-gradient(135deg,rgba(7,27,63,0.95)_0%,rgba(10,42,102,0.78)_100%)] p-4 shadow-[0_18px_46px_rgba(0,0,0,0.28)] transition duration-200 hover:border-gold-300 hover:shadow-[0_20px_54px_rgba(0,0,0,0.34),0_0_24px_rgba(245,199,106,0.12)] sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-5">
+            <div className="mb-4 max-w-3xl sm:mb-0">
+              <h3 className="text-[19px] font-semibold leading-7 text-white">
+                {packages.moreHeading}
+              </h3>
+              <p className="mt-2 text-[15px] font-semibold leading-7 text-[#EAF2FF]">
+                {packages.moreIntro}
+              </p>
+              <p className="mt-2 text-sm font-semibold leading-6 text-gold-300/90">
+                {packages.moreNote}
+              </p>
+            </div>
             <button
               type="button"
               onClick={() => setShowMoreOptions((current) => !current)}
-              className="outline-button rounded-full px-5 py-3 text-sm font-bold"
+              className="gold-button inline-flex w-full justify-center rounded-full px-6 py-3 text-sm font-bold sm:w-auto"
             >
               {showMoreOptions ? packages.lessToggle : packages.moreToggle}
             </button>

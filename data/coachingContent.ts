@@ -48,8 +48,12 @@ export const coachingContent = {
       "Mỗi khách hàng đến với Coaching ở một trạng thái khác nhau. Có người chỉ cần một phiên để nhìn rõ vấn đề, có người cần đi sâu hơn với bộ công cụ chuyên môn, có người cần một lộ trình đồng hành dài hạn hoặc đồng hành cho cả gia đình.",
     detailToggle: "Xem chi tiết",
     collapseToggle: "Thu gọn",
-    moreToggle: "Xem thêm lựa chọn",
-    lessToggle: "Thu gọn lựa chọn",
+    moreHeading: "Bạn cần một lựa chọn khác?",
+    moreToggle: "Xem thêm 2 gói Coaching khác",
+    lessToggle: "Thu gọn 2 gói Coaching khác",
+    moreIntro:
+      "Ngoài 3 gói chính bên trên, bạn có thể xem thêm 2 gói Coaching khác dành cho nhu cầu định hướng rõ hơn hoặc đồng hành dài hơn.",
+    moreNote: "Gồm: Định Hướng & Vẽ Lộ Trình · Vững Vàng & Bền Bỉ 6 Tháng",
     addonNote:
       "Khách hàng đã từng Coaching hoặc đã có Bản đồ có thể đăng ký phiên Coaching lẻ: 999.000đ/buổi.",
     labels: {
