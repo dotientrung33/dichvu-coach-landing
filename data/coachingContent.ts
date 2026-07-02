@@ -48,6 +48,10 @@ export const coachingContent = {
       "Mỗi khách hàng đến với Coaching ở một trạng thái khác nhau. Có người chỉ cần một phiên để nhìn rõ vấn đề, có người cần đi sâu hơn với bộ công cụ chuyên môn, có người cần một lộ trình đồng hành dài hạn hoặc đồng hành cho cả gia đình.",
     detailToggle: "Xem chi tiết",
     collapseToggle: "Thu gọn",
+    moreToggle: "Xem thêm lựa chọn",
+    lessToggle: "Thu gọn lựa chọn",
+    addonNote:
+      "Khách hàng đã từng Coaching hoặc đã có Bản đồ có thể đăng ký phiên Coaching lẻ: 999.000đ/buổi.",
     labels: {
       audience: "Dành cho",
       format: "Hình thức",

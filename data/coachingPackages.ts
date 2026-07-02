@@ -7,6 +7,7 @@ export type CoachingPackage = {
   name: string;
   badge?: string;
   price: string;
+  originalPrice?: string;
   positioning: string;
   compactAudience: string;
   compactMeta: string;
@@ -20,10 +21,6 @@ export type CoachingPackage = {
   toolsItems?: string[];
   expectedResultTitle: string;
   expectedResult: string;
-  roleTitle?: string;
-  role?: string[];
-  costTitle?: string;
-  costNote?: string[];
   cta: string;
   accent?: boolean;
 };
@@ -40,7 +37,7 @@ export const coachingPackages: CoachingPackage[] = [
     positioning: "Nhìn rõ vấn đề và hướng đi ban đầu",
     compactAudience:
       "Dành cho người đang rối, bế tắc hoặc cần một góc nhìn mới cho vấn đề hiện tại.",
-    compactMeta: "01 phiên Coaching 1-1 · 60–90 phút",
+    compactMeta: "01 phiên Coaching 1-1 · 60-90 phút",
     detailAudienceTitle: "Dành cho ai?",
     detailAudienceIntro:
       "Gói Khám Phá dành cho những người đang gặp khó khăn, bế tắc hoặc cần một góc nhìn mới cho vấn đề hiện tại.",
@@ -54,7 +51,7 @@ export const coachingPackages: CoachingPackage[] = [
     includedTitle: "Bạn nhận được gì?",
     includedItems: [
       "01 phiên Coaching 1-1",
-      "Thời lượng 60–90 phút",
+      "Thời lượng 60-90 phút",
       "Làm rõ vấn đề đang gặp phải",
       "Xác định điều cần ưu tiên ở thời điểm hiện tại",
       "Nhìn lại cảm xúc, nhu cầu và điểm nghẽn chính",
@@ -64,11 +61,38 @@ export const coachingPackages: CoachingPackage[] = [
     expectedResultTitle: "Kết quả mong đợi",
     expectedResult:
       "Sau phiên Coaching, bạn có thể nhìn rõ hơn điều đang khiến mình bế tắc và biết bước tiếp theo mình cần làm là gì.",
-    roleTitle: "Vai trò của gói này trong hành trình Coaching",
-    role: [
-      "Đây là điểm chạm đầu tiên để khách hàng bắt đầu với Mr. Thấu Hiểu.",
-      "Sau phiên Khám Phá, tùy nhu cầu thực tế, khách có thể được tư vấn thêm File Bản đồ Cá nhân, Gói Thấu Hiểu Chuyên Sâu, Gói Gia Đình Thấu Hiểu hoặc Gói Đồng Hành VIP 1-1.",
+    cta: "Chọn gói này",
+  },
+  {
+    id: "goi-dinh-huong-ve-lo-trinh",
+    isPublic: true,
+    showOnLanding: true,
+    showInForm: true,
+    groupLabel: "COACHING ĐỊNH HƯỚNG",
+    name: "Gói Định Hướng & Vẽ Lộ Trình",
+    price: "1.499.000đ",
+    positioning: "Làm rõ vấn đề và xác định hướng đi phù hợp",
+    compactAudience:
+      "Dành cho người đang có nhiều lựa chọn, nhiều băn khoăn hoặc chưa biết nên bắt đầu từ đâu.",
+    compactMeta: "01 phiên Coaching chuyên sâu · 90-120 phút",
+    detailAudienceTitle: "Dành cho ai?",
+    fitItems: [
+      "Bạn đang đứng trước một quyết định quan trọng",
+      "Bạn có nhiều lựa chọn nhưng chưa biết đâu là hướng phù hợp",
+      "Bạn thấy mình đang lặp lại một vấn đề nhưng chưa rõ nguyên nhân",
+      "Bạn muốn có một lộ trình hành động rõ ràng hơn sau phiên Coaching",
     ],
+    includedTitle: "Bạn nhận được gì?",
+    includedItems: [
+      "01 phiên Coaching chuyên sâu 90-120 phút",
+      "Làm rõ vấn đề trọng tâm đang cần tháo gỡ",
+      "Phân tích bối cảnh hiện tại và các lựa chọn đang có",
+      "Gợi ý hướng đi phù hợp với nhu cầu, nguồn lực và trạng thái hiện tại",
+      "Xây dựng lộ trình hành động bước đầu sau phiên Coaching",
+    ],
+    expectedResultTitle: "Kết quả mong đợi",
+    expectedResult:
+      "Sau phiên Coaching, bạn có thể nhìn rõ vấn đề chính, hiểu đâu là hướng đi phù hợp hơn và có một lộ trình hành động cụ thể để bắt đầu.",
     cta: "Chọn gói này",
   },
   {
@@ -84,7 +108,7 @@ export const coachingPackages: CoachingPackage[] = [
     compactAudience:
       "Dành cho người muốn hiểu sâu bản thân, mối quan hệ, sự nghiệp hoặc những vấn đề đang lặp lại.",
     compactMeta:
-      "02 phiên Coaching 1-1 · 60–120 phút/phiên · Đồng hành hỏi đáp 03 tháng",
+      "02 phiên Coaching 1-1 · 60-120 phút/phiên · Đồng hành hỏi đáp 03 tháng",
     detailAudienceTitle: "Dành cho ai?",
     detailAudienceIntro:
       "Gói Thấu Hiểu Chuyên Sâu dành cho người muốn hiểu sâu hơn về bản thân, mối quan hệ, sự nghiệp hoặc những vấn đề đang lặp lại trong cuộc sống.",
@@ -98,7 +122,7 @@ export const coachingPackages: CoachingPackage[] = [
     includedTitle: "Bạn nhận được gì?",
     includedItems: [
       "02 phiên Coaching 1-1 chuyên sâu",
-      "Thời lượng 60–120 phút/phiên",
+      "Thời lượng 60-120 phút/phiên",
       "01 Bản đồ Thấu hiểu Con người phù hợp với nhu cầu",
       "Luận giải và soi chiếu bản đồ trong quá trình Coaching",
       "Làm rõ mô thức, điểm mạnh, điểm mù và bài học cá nhân",
@@ -118,59 +142,40 @@ export const coachingPackages: CoachingPackage[] = [
     expectedResultTitle: "Kết quả mong đợi",
     expectedResult:
       "Sau gói Coaching, bạn có thể hiểu sâu hơn cách mình đang vận hành, nhìn rõ nguyên nhân gốc rễ của vấn đề và có một lộ trình hành động phù hợp với chính mình.",
-    roleTitle: "Vai trò của gói này trong hành trình Coaching",
-    role: [
-      "Đây là gói chủ lực của Coaching cá nhân.",
-      "Gói này không bán Map riêng lẻ. Gói này bán trải nghiệm Coaching được hỗ trợ bởi bộ công cụ chuyên môn để quá trình thấu hiểu trở nên sâu sắc và cá nhân hóa hơn.",
-    ],
     cta: "Chọn gói này",
     accent: true,
   },
   {
-    id: "goi-dong-hanh-vip-1-1",
+    id: "goi-vung-vang-ben-bi-6-thang",
     isPublic: true,
     showOnLanding: true,
     showInForm: true,
-    groupLabel: "COACHING CHUYÊN SÂU DÀI HẠN",
-    name: "Gói Đồng Hành VIP 1-1",
-    price: "Tư vấn theo lộ trình",
-    positioning: "Đồng hành cá nhân hóa dài hạn",
+    groupLabel: "COACHING ĐỒNG HÀNH 6 THÁNG",
+    name: "Gói Vững Vàng & Bền Bỉ - 6 Tháng",
+    price: "4.999.000đ",
+    positioning: "Đồng hành dài hơn để chuyển hóa bền vững hơn",
     compactAudience:
-      "Dành cho khách hàng cần một không gian Coaching riêng tư, sâu và đều đặn trong các giai đoạn quan trọng.",
-    compactMeta: "Lộ trình 6–12 tháng · Thiết kế riêng theo mục tiêu đồng hành",
+      "Dành cho người cần một lộ trình đồng hành dài hơn để duy trì sự rõ ràng, ổn định cảm xúc và hành động nhất quán.",
+    compactMeta: "03 phiên Coaching · Đồng hành 06 tháng",
     detailAudienceTitle: "Dành cho ai?",
-    detailAudienceIntro:
-      "Gói Đồng Hành VIP 1-1 phù hợp với những khách hàng đang ở giai đoạn cần sự đồng hành cá nhân hóa, sâu và dài hạn.",
     fitItems: [
-      "Đang đứng trước những quyết định quan trọng trong cuộc sống, công việc hoặc mối quan hệ",
-      "Cần một không gian soi chiếu riêng tư, an toàn và có chiều sâu",
-      "Muốn được đồng hành đều đặn để giữ nhịp phát triển cá nhân",
-      "Đang trong giai đoạn chuyển đổi vai trò, sự nghiệp hoặc định hướng sống",
-      "Muốn cải thiện hiệu suất, sự cân bằng và chất lượng các mối quan hệ quan trọng",
-      "Cần một Coach đồng hành dài hạn để nhìn rõ vấn đề, hành động nhất quán và theo dõi tiến trình",
+      "Bạn đang trong giai đoạn chuyển đổi cá nhân, công việc hoặc mối quan hệ",
+      "Bạn cần người đồng hành để giữ sự rõ ràng và cam kết hành động",
+      "Bạn muốn thay đổi một mô thức cũ nhưng dễ quay lại thói quen quen thuộc",
+      "Bạn cần một lộ trình có theo dõi, phản hồi và điều chỉnh theo thời gian",
     ],
     includedTitle: "Bạn nhận được gì?",
     includedItems: [
-      "Lộ trình Coaching thiết kế riêng theo mục tiêu cá nhân",
-      "Đồng hành dài hạn 6–12 tháng tùy nhu cầu",
-      "Các phiên Coaching 1-1 chuyên sâu",
-      "Thời lượng mỗi phiên 60–120 phút",
-      "Bộ công cụ chuyên môn cá nhân hóa theo từng giai đoạn",
-      "Tài liệu, bài tập hoặc nội dung hỗ trợ sau phiên",
-      "Hỗ trợ hỏi đáp giữa các phiên",
-      "Review tiến trình định kỳ",
-      "Ưu tiên lịch hẹn",
-      "Có thể tích hợp thêm khóa học, bản đồ cá nhân hoặc gói đồng hành bổ sung khi phù hợp",
+      "03 phiên Coaching theo lộ trình",
+      "Làm rõ mục tiêu và vấn đề cốt lõi",
+      "Theo dõi tiến trình thay đổi trong 06 tháng",
+      "Hỗ trợ điều chỉnh góc nhìn và hành động khi gặp vướng mắc",
+      "Đồng hành hỏi đáp trong thời gian triển khai",
     ],
     expectedResultTitle: "Kết quả mong đợi",
     expectedResult:
-      "Sau quá trình đồng hành, bạn có một không gian soi chiếu đều đặn để nhìn rõ vấn đề, ra quyết định tốt hơn, giữ nhịp phát triển cá nhân và tạo thay đổi bền vững trong cuộc sống, công việc hoặc các mối quan hệ quan trọng.",
-    costTitle: "Chi phí",
-    costNote: [
-      "Lộ trình và chi phí được tư vấn riêng theo mục tiêu đồng hành.",
-      "Không hiển thị công khai các mức 6 tháng / 12 tháng trên landing page.",
-    ],
-    cta: "Tư vấn lộ trình VIP",
+      "Sau chương trình, bạn có thể duy trì sự rõ ràng, ổn định hơn trong hành động và từng bước xây dựng thay đổi bền vững trong cuộc sống hoặc công việc.",
+    cta: "Chọn gói này",
   },
   {
     id: "combo-gia-dinh-thau-hieu",
@@ -179,15 +184,14 @@ export const coachingPackages: CoachingPackage[] = [
     showInForm: true,
     groupLabel: "COACHING GIA ĐÌNH & MỐI QUAN HỆ",
     name: "Gói Gia Đình Thấu Hiểu",
+    originalPrice: "12.990.000đ",
     price: "9.990.000đ",
     positioning:
       "Coaching dành cho gia đình và các mối quan hệ quan trọng",
     compactAudience:
       "Dành cho cặp đôi, cha mẹ, con cái hoặc gia đình muốn hiểu nhau sâu hơn, giảm xung đột và xây dựng kết nối bền vững.",
-    compactMeta: "03 phiên Coaching · 60–120 phút/phiên · Đồng hành 06 tháng",
+    compactMeta: "03 phiên Coaching · 60-120 phút/phiên · Đồng hành 06 tháng",
     detailAudienceTitle: "Dành cho ai?",
-    detailAudienceIntro:
-      "Gói Gia Đình Thấu Hiểu dành cho cặp đôi, cha mẹ, con cái hoặc gia đình muốn hiểu nhau sâu hơn, giảm xung đột và xây dựng kết nối bền vững.",
     fitItems: [
       "Vợ chồng thường xuyên bất đồng, khó giao tiếp",
       "Cha mẹ muốn hiểu con nhưng càng nói con càng xa cách",
@@ -198,10 +202,11 @@ export const coachingPackages: CoachingPackage[] = [
     ],
     includedTitle: "Bạn nhận được gì?",
     includedItems: [
-      "03 phiên Coaching / đồng hành gia đình",
-      "Thời lượng 60–120 phút/phiên",
+      "03 phiên Coaching / đồng hành gia đình, 60-120 phút/phiên",
       "Phân tích nhu cầu và vấn đề chính trong mối quan hệ",
       "Sử dụng Relationship Map để soi chiếu sự khác biệt giữa các thành viên",
+      "04 bản đồ cá nhân hóa riêng cho các thành viên chính trong gia đình, gồm bố/mẹ và tối đa 2 con",
+      "Từ thành viên thứ 5 trở đi: phụ phí 1.000.000đ/người",
       "Có thể sử dụng Kid Talent Map nếu liên quan đến cha mẹ và con cái",
       "Làm rõ nhu cầu cảm xúc, phong cách giao tiếp và điểm dễ xung đột",
       "Đề xuất cách giao tiếp, thấu hiểu và đồng hành phù hợp",
@@ -210,48 +215,47 @@ export const coachingPackages: CoachingPackage[] = [
     expectedResultTitle: "Kết quả mong đợi",
     expectedResult:
       "Sau chương trình, các thành viên có thể hiểu nhau sâu hơn, giảm phán xét, cải thiện giao tiếp và xây dựng một cách đồng hành phù hợp hơn trong gia đình.",
-    roleTitle: "Vai trò của gói này trong hành trình Coaching",
-    role: [
-      "Đây là gói riêng cho nhóm nhu cầu gia đình và mối quan hệ. Không đặt ngang hàng hoàn toàn với các gói Coaching cá nhân.",
-    ],
     cta: "Chọn gói này",
+  },
+  {
+    id: "goi-dong-hanh-vip-1-1",
+    isPublic: true,
+    showOnLanding: true,
+    showInForm: true,
+    groupLabel: "COACHING CHUYÊN SÂU THEO LỘ TRÌNH",
+    name: "Đồng Hành VIP 1:1",
+    price: "Tư vấn theo lộ trình",
+    positioning: "Đồng hành chuyên sâu theo lộ trình",
+    compactAudience:
+      "Dành cho cá nhân, gia đình hoặc doanh nghiệp cần một lộ trình đồng hành chuyên sâu, linh hoạt và được thiết kế riêng theo nhu cầu thực tế.",
+    compactMeta: "Lộ trình cá nhân hóa · Tư vấn riêng theo mục tiêu đồng hành",
+    detailAudienceTitle: "Dành cho ai?",
+    fitItems: [],
+    includedTitle: "Bạn nhận được gì?",
+    includedItems: [],
+    expectedResultTitle: "Kết quả mong đợi",
+    expectedResult: "",
+    cta: "Trao đổi qua Zalo",
   },
   {
     id: "phien-coaching-chuyen-sau",
     isPublic: true,
-    showOnLanding: true,
+    showOnLanding: false,
     showInForm: true,
     groupLabel: "COACHING CÁ NHÂN THEO PHIÊN",
     name: "Phiên Coaching Chuyên Sâu",
-    price: "999.000đ / phiên",
+    price: "999.000đ / buổi",
     positioning: "Soi chiếu một vấn đề cụ thể",
     compactAudience:
-      "Phù hợp với khách đã có Bản đồ cá nhân, đã được Coaching trước đó hoặc đã hoàn tất thời gian đồng hành của các gói Coaching khác.",
-    compactMeta: "01 phiên Coaching 1-1 · 60–120 phút",
+      "Khách hàng đã từng Coaching hoặc đã có Bản đồ có thể đăng ký phiên Coaching lẻ.",
+    compactMeta: "01 phiên Coaching 1-1 · 60-120 phút",
     detailAudienceTitle: "Dành cho ai?",
-    fitItems: [
-      "Khách hàng đã có Bản đồ cá nhân và được Coaching trước đó",
-      "Khách hàng đã hoàn tất thời gian đồng hành của các gói Coaching khác",
-      "Khách hàng cũ muốn quay lại để soi chiếu thêm một vấn đề mới",
-      "Khách hàng cần một phiên chuyên sâu để làm rõ vấn đề, ra quyết định hoặc tái định hướng",
-    ],
+    fitItems: [],
     includedTitle: "Bạn nhận được gì?",
-    includedItems: [
-      "01 phiên Coaching 1-1 chuyên sâu",
-      "Thời lượng 60–120 phút",
-      "Tập trung vào một vấn đề cụ thể",
-      "Có thể sử dụng lại Bản đồ đã có để soi chiếu sâu hơn",
-      "Làm rõ điểm nghẽn hiện tại",
-      "Đề xuất hướng hành động sau phiên",
-    ],
+    includedItems: [],
     expectedResultTitle: "Kết quả mong đợi",
-    expectedResult:
-      "Sau phiên Coaching, bạn có thể nhìn rõ hơn vấn đề đang gặp phải, hiểu điều gì đang vận hành bên trong mình và xác định bước hành động phù hợp tiếp theo.",
-    roleTitle: "Vai trò của gói này trong hành trình Coaching",
-    role: [
-      "Đây là lựa chọn linh hoạt cho khách đã có nền tảng hoặc đã từng đồng hành trước đó. Không thay thế Gói Khám Phá dành cho khách mới.",
-    ],
-    cta: "Đăng ký phiên chuyên sâu",
+    expectedResult: "",
+    cta: "Đăng ký phiên lẻ",
   },
   {
     id: "tu-van-goi-phu-hop",
