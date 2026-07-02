@@ -49,8 +49,8 @@ export const coachingContent = {
     detailToggle: "Xem chi tiết",
     collapseToggle: "Thu gọn",
     moreHeading: "Bạn cần một lựa chọn khác?",
-    moreToggle: "Xem thêm 2 gói Coaching khác",
-    lessToggle: "Thu gọn 2 gói Coaching khác",
+    moreToggle: "Xem thêm Gói Coaching khác",
+    lessToggle: "Thu gọn Gói Coaching khác",
     moreIntro:
       "Ngoài 3 gói chính bên trên, bạn có thể xem thêm 2 gói Coaching khác dành cho nhu cầu định hướng rõ hơn hoặc đồng hành dài hơn.",
     moreNote: "Gồm: Định Hướng & Vẽ Lộ Trình · Vững Vàng & Bền Bỉ 6 Tháng",

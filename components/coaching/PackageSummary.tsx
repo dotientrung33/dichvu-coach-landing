@@ -17,6 +17,7 @@ const bridgePackageIds = [
 ];
 
 const vipPackageId = "goi-dong-hanh-vip-1-1";
+const sessionPackageId = "phien-coaching-chuyen-sau";
 
 function DetailList({ items }: { items: string[] }) {
   if (items.length === 0) {
@@ -164,7 +165,18 @@ function PackageCard({
   );
 }
 
-function VipCard({ pkg }: { pkg: CoachingPackage }) {
+function VipCard({
+  pkg,
+  expandedId,
+  setExpandedId,
+}: {
+  pkg: CoachingPackage;
+  expandedId: string | null;
+  setExpandedId: (id: string | null) => void;
+}) {
+  const { packages } = coachingContent;
+  const isExpanded = expandedId === pkg.id;
+
   return (
     <article className="electric-card rounded-[24px] border-gold-400/30 p-5 sm:p-6 lg:p-7">
       <div className="grid gap-6 lg:grid-cols-[1fr_280px] lg:items-center">
@@ -204,10 +216,18 @@ function VipCard({ pkg }: { pkg: CoachingPackage }) {
             >
               Nhắn Messenger
             </a>
+            <button
+              type="button"
+              onClick={() => setExpandedId(isExpanded ? null : pkg.id)}
+              className="outline-button inline-flex justify-center rounded-full px-5 py-3 text-sm font-bold"
+            >
+              {isExpanded ? packages.collapseToggle : packages.detailToggle}
+            </button>
           </div>
         </div>
       </div>
 
+      {isExpanded ? (
       <div className="mt-6 border-t border-[rgba(0,163,255,0.18)] pt-6">
         {pkg.detailAudienceIntro ? (
           <p className="max-w-4xl text-[15px] leading-7 text-[#EAF2FF]">
@@ -244,6 +264,82 @@ function VipCard({ pkg }: { pkg: CoachingPackage }) {
           </div>
         ) : null}
       </div>
+      ) : null}
+    </article>
+  );
+}
+
+function SessionCard({
+  pkg,
+  expandedId,
+  setExpandedId,
+}: {
+  pkg: CoachingPackage;
+  expandedId: string | null;
+  setExpandedId: (id: string | null) => void;
+}) {
+  const { packages } = coachingContent;
+  const isExpanded = expandedId === pkg.id;
+
+  return (
+    <article className="electric-card rounded-[24px] p-5 sm:p-6 lg:p-7">
+      <div className="grid gap-6 lg:grid-cols-[1fr_250px] lg:items-center">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold-300/85">
+            {pkg.groupLabel}
+          </p>
+          <h3 className="mt-3 text-[22px] font-semibold leading-tight text-white sm:text-[26px]">
+            {pkg.name}
+          </h3>
+          <p className="mt-2 text-base font-semibold leading-7 text-gold-300">
+            {pkg.positioning}
+          </p>
+          <p className="mt-3 max-w-3xl text-[16px] leading-7 text-[#EAF2FF]">
+            {pkg.compactAudience}
+          </p>
+          <p className="mt-4 text-[15px] font-semibold leading-6 text-slate-100">
+            {pkg.compactMeta}
+          </p>
+        </div>
+
+        <div className="grid gap-3 lg:justify-items-end">
+          <PackagePrice pkg={pkg} />
+          <div className="flex flex-col gap-3 sm:flex-row lg:w-full lg:flex-col">
+            <a
+              href="#dang-ky"
+              className="gold-button inline-flex justify-center rounded-full px-5 py-3 text-sm"
+            >
+              {pkg.cta}
+            </a>
+            <button
+              type="button"
+              onClick={() => setExpandedId(isExpanded ? null : pkg.id)}
+              className="outline-button inline-flex justify-center rounded-full px-5 py-3 text-sm font-bold"
+            >
+              {isExpanded ? packages.collapseToggle : packages.detailToggle}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {isExpanded ? (
+      <div className="mt-6 border-t border-[rgba(0,163,255,0.18)] pt-6">
+        <div className="grid gap-7 lg:grid-cols-2">
+          <div>
+            <h4 className="text-base font-semibold text-gold-300">
+              {pkg.detailAudienceTitle}
+            </h4>
+            <DetailList items={pkg.fitItems} />
+          </div>
+          <div>
+            <h4 className="text-base font-semibold text-gold-300">
+              {pkg.includedTitle}
+            </h4>
+            <DetailList items={pkg.includedItems} />
+          </div>
+        </div>
+      </div>
+      ) : null}
     </article>
   );
 }
@@ -267,6 +363,7 @@ export default function PackageSummary() {
     .filter((pkg): pkg is CoachingPackage => Boolean(pkg));
 
   const vipPackage = packageMap.get(vipPackageId);
+  const sessionPackage = packageMap.get(sessionPackageId);
 
   return (
     <section id="goi-coach" className="dark-section py-14 text-white sm:py-[72px] lg:py-[92px]">
@@ -296,22 +393,22 @@ export default function PackageSummary() {
             />
           ))}
 
-          <div className="rounded-[22px] border border-[rgba(217,164,65,0.65)] bg-[linear-gradient(135deg,rgba(7,27,63,0.95)_0%,rgba(10,42,102,0.78)_100%)] p-4 shadow-[0_18px_46px_rgba(0,0,0,0.28)] transition duration-200 hover:border-gold-300 hover:shadow-[0_20px_54px_rgba(0,0,0,0.34),0_0_24px_rgba(245,199,106,0.12)] sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-5">
+          <div className="rounded-[20px] border border-[rgba(0,163,255,0.18)] bg-[#071B3F]/55 px-4 py-4 transition duration-200 hover:border-gold-300/25 sm:flex sm:items-center sm:justify-between sm:gap-5 sm:px-5">
             <div className="mb-4 max-w-3xl sm:mb-0">
-              <h3 className="text-[19px] font-semibold leading-7 text-white">
+              <h3 className="text-base font-semibold leading-6 text-white">
                 {packages.moreHeading}
               </h3>
-              <p className="mt-2 text-[15px] font-semibold leading-7 text-[#EAF2FF]">
+              <p className="mt-1.5 text-[15px] leading-7 text-[#EAF2FF]">
                 {packages.moreIntro}
               </p>
-              <p className="mt-2 text-sm font-semibold leading-6 text-gold-300/90">
+              <p className="mt-1.5 text-sm font-semibold leading-6 text-gold-300/80">
                 {packages.moreNote}
               </p>
             </div>
             <button
               type="button"
               onClick={() => setShowMoreOptions((current) => !current)}
-              className="gold-button inline-flex w-full justify-center rounded-full px-6 py-3 text-sm font-bold sm:w-auto"
+              className="outline-button inline-flex w-full justify-center rounded-full px-5 py-3 text-sm font-bold sm:w-auto"
             >
               {showMoreOptions ? packages.lessToggle : packages.moreToggle}
             </button>
@@ -328,11 +425,21 @@ export default function PackageSummary() {
               ))
             : null}
 
-          {vipPackage ? <VipCard pkg={vipPackage} /> : null}
+          {vipPackage ? (
+            <VipCard
+              pkg={vipPackage}
+              expandedId={expandedId}
+              setExpandedId={setExpandedId}
+            />
+          ) : null}
 
-          <p className="rounded-2xl border border-[rgba(0,163,255,0.18)] bg-[#071B3F]/55 px-5 py-4 text-[15px] font-semibold leading-7 text-[#EAF2FF]">
-            {packages.addonNote}
-          </p>
+          {sessionPackage ? (
+            <SessionCard
+              pkg={sessionPackage}
+              expandedId={expandedId}
+              setExpandedId={setExpandedId}
+            />
+          ) : null}
         </div>
       </div>
     </section>
