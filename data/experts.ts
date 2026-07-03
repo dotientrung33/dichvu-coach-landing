@@ -72,7 +72,7 @@ export const experts: Expert[] = [
     isActive: true,
     name: "Nguyễn Thị Phương Thảo",
     role: "Transform Coach",
-    image: "/images/coaching/expert/Nguyen-thi-phuong-thao.jpg",
+    image: "/images/coaching/expert/nguyen-thi-phuong-thao.jpg",
     imageAlt: "Nguyễn Thị Phương Thảo",
     description:
       "Đồng hành cùng khách hàng trong hành trình chuyển hóa tư duy, nâng cao hiệu suất cá nhân và tạo ra những thay đổi thực tế trong công việc, cuộc sống và mục tiêu phát triển.\n\nTập trung hỗ trợ khách hàng nhận diện điểm nghẽn bên trong, xây dựng sự chủ động và duy trì trạng thái hành động bền vững hơn.",
