@@ -1,16 +1,15 @@
 import ExpertTrustSection from "@/components/coaching/ExpertTrustSection";
 import CertificatesSection from "@/components/coaching/CertificatesSection";
+import ClosingMessageSection from "@/components/coaching/ClosingMessageSection";
+import CommunityGallerySection from "@/components/coaching/CommunityGallerySection";
 import FAQRegisterSection from "@/components/coaching/FAQRegisterSection";
 import FloatingContactButtons from "@/components/coaching/FloatingContactButtons";
 import Footer from "@/components/coaching/Footer";
 import Header from "@/components/coaching/Header";
 import Hero from "@/components/coaching/Hero";
-import JourneySection from "@/components/coaching/JourneySection";
 import MapTools from "@/components/coaching/MapTools";
 import OutcomesSection from "@/components/coaching/OutcomesSection";
 import PackageSummary from "@/components/coaching/PackageSummary";
-import TestimonialsSection from "@/components/coaching/TestimonialsSection";
-import UnderstandingJourneySection from "@/components/coaching/UnderstandingJourneySection";
 
 export const metadata = {
   title: "Dịch vụ Coaching cùng Mr. Thấu Hiểu",
@@ -24,14 +23,13 @@ export default function CoachingLandingPage() {
       <Header />
       <Hero />
       <OutcomesSection />
-      <UnderstandingJourneySection />
       <PackageSummary />
       <MapTools />
       <ExpertTrustSection />
       <CertificatesSection />
-      <TestimonialsSection />
-      <JourneySection />
+      <CommunityGallerySection />
       <FAQRegisterSection />
+      <ClosingMessageSection />
       <FloatingContactButtons />
       <Footer />
     </main>

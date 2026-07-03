@@ -4,6 +4,10 @@ import { PointerEvent, useEffect, useMemo, useState } from "react";
 import { coachingContent } from "@/data/coachingContent";
 import { testimonials } from "@/data/testimonials";
 
+type TestimonialsSectionProps = {
+  variant?: "default" | "embedded";
+};
+
 function getInitials(name: string) {
   return name
     .replace(/^(Anh|Chị)\s+/i, "")
@@ -36,8 +40,19 @@ function Avatar({ name, src }: { name: string; src: string }) {
   );
 }
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ variant = "default" }: TestimonialsSectionProps) {
   const { testimonials: content } = coachingContent;
+  const isEmbedded = variant === "embedded";
+  const displayContent = isEmbedded
+    ? {
+        ...content,
+        eyebrow: "",
+        title: "Khách hàng nói gì?",
+        description:
+          "Không chỉ là lời khen, đây là những thay đổi thực tế sau quá trình được lắng nghe, soi chiếu và đồng hành.",
+      }
+    : content;
+  const shouldPauseOnHover = !isEmbedded;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [perPage, setPerPage] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
@@ -108,6 +123,105 @@ export default function TestimonialsSection() {
     }
   }, [currentIndex]);
 
+  const contentNode = (
+    <>
+      <div className="mb-9 w-full text-left">
+        {displayContent.eyebrow ? (
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gold-300">
+            {displayContent.eyebrow}
+          </p>
+        ) : null}
+        <h2 className={`${displayContent.eyebrow ? "mt-4" : ""} text-[28px] font-bold leading-tight text-white md:text-[32px] lg:text-[36px]`}>
+          {displayContent.title}
+        </h2>
+        <p className="mt-4 w-full text-[17px] leading-8 text-white/86 sm:text-[18px]">
+          {displayContent.description}
+        </p>
+      </div>
+
+      <div
+        className="grid min-h-[400px] touch-pan-y gap-5 pt-8 transition-all duration-[600ms] ease-out md:min-h-[420px] md:gap-7 lg:min-h-[440px] lg:gap-8"
+        style={{ gridTemplateColumns: `repeat(${visibleTestimonials.length}, minmax(0, 1fr))` }}
+        onMouseEnter={() => {
+          if (shouldPauseOnHover) {
+            setIsPaused(true);
+          }
+        }}
+        onMouseLeave={() => {
+          setIsPaused(false);
+          setDragStart(null);
+        }}
+        onPointerLeave={() => {
+          setIsPaused(false);
+          setDragStart(null);
+        }}
+        onPointerDown={(event) => setDragStart(event.clientX)}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={() => setDragStart(null)}
+      >
+        {visibleTestimonials.map((testimonial, index) => (
+          <figure
+            key={testimonial.name}
+            className={`relative rounded-[30px] border border-white/35 bg-white px-6 pb-7 pt-20 text-[#06122B] shadow-[0_24px_70px_rgba(0,0,0,0.25)] transition duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(0,0,0,0.34)] sm:px-7 sm:pb-8 sm:pt-[88px] ${
+              index === 1 ? "lg:mt-8" : ""
+            }`}
+          >
+            <div className="absolute -top-10 left-7 sm:-top-12 sm:left-8">
+              <Avatar name={testimonial.name} src={testimonial.avatar} />
+            </div>
+
+            <div className="absolute right-7 top-5 text-[64px] font-serif leading-none text-gold-500/85 sm:right-8 sm:top-7">
+              &rdquo;
+            </div>
+
+            <div className="pr-10">
+              <h3 className="text-xl font-bold leading-tight text-[#06122B]">
+                {testimonial.name}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-[#405170]">
+                {testimonial.role}
+              </p>
+              <p className="mt-3 inline-flex rounded-full bg-[#003B9A]/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#003B9A]">
+                {testimonial.tag}
+              </p>
+            </div>
+
+            <div
+              aria-label={displayContent.ratingLabel}
+              className="mt-4 flex gap-1 text-[17px] text-gold-500"
+            >
+              {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                <span key={starIndex}>★</span>
+              ))}
+            </div>
+
+            <p className="mt-5 text-[16px] leading-7 text-[#1F2D46] sm:text-[17px]">
+              {testimonial.feeling}
+            </p>
+          </figure>
+        ))}
+      </div>
+
+      <div className="mt-8 flex justify-center gap-2.5">
+        {testimonials.map((testimonial, index) => (
+          <button
+            key={testimonial.name}
+            type="button"
+            aria-label={`${displayContent.title} ${index + 1}`}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-3 rounded-full transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-300 ${
+              index === currentIndex ? "w-9 bg-gold-400" : "w-3 bg-white/45 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+    </>
+  );
+
+  if (isEmbedded) {
+    return <div className="mt-10 lg:mt-16">{contentNode}</div>;
+  }
+
   return (
     <section
       className="relative overflow-hidden bg-[#020817] py-12 text-white sm:py-16 lg:py-20"
@@ -117,88 +231,7 @@ export default function TestimonialsSection() {
         backgroundSize: "56px 56px, 56px 56px, auto, auto, auto",
       }}
     >
-      <div className="section-shell relative">
-        <div className="mb-9 w-full text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gold-300">
-            {content.eyebrow}
-          </p>
-          <h2 className="mt-4 text-[30px] font-bold leading-tight text-white sm:text-[40px] lg:text-[42px]">
-            {content.title}
-          </h2>
-          <p className="mt-4 w-full text-[17px] leading-8 text-white/86 sm:text-[18px]">
-            {content.description}
-          </p>
-        </div>
-
-        <div
-          className="grid min-h-[400px] touch-pan-y gap-5 pt-8 transition-all duration-[600ms] ease-out md:min-h-[420px] md:gap-7 lg:min-h-[440px] lg:gap-8"
-          style={{ gridTemplateColumns: `repeat(${visibleTestimonials.length}, minmax(0, 1fr))` }}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => {
-            setIsPaused(false);
-            setDragStart(null);
-          }}
-          onPointerDown={(event) => setDragStart(event.clientX)}
-          onPointerUp={handlePointerEnd}
-          onPointerCancel={() => setDragStart(null)}
-        >
-          {visibleTestimonials.map((testimonial, index) => (
-            <figure
-              key={testimonial.name}
-              className={`relative rounded-[30px] border border-white/35 bg-white px-6 pb-7 pt-20 text-[#06122B] shadow-[0_24px_70px_rgba(0,0,0,0.25)] transition duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(0,0,0,0.34)] sm:px-7 sm:pb-8 sm:pt-[88px] ${
-                index === 1 ? "lg:mt-8" : ""
-              }`}
-            >
-              <div className="absolute -top-10 left-7 sm:-top-12 sm:left-8">
-                <Avatar name={testimonial.name} src={testimonial.avatar} />
-              </div>
-
-              <div className="absolute right-7 top-5 text-[64px] font-serif leading-none text-gold-500/85 sm:right-8 sm:top-7">
-                &rdquo;
-              </div>
-
-              <div className="pr-10">
-                <h3 className="text-xl font-bold leading-tight text-[#06122B]">
-                  {testimonial.name}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[#405170]">
-                  {testimonial.role}
-                </p>
-                <p className="mt-3 inline-flex rounded-full bg-[#003B9A]/8 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#003B9A]">
-                  {testimonial.tag}
-                </p>
-              </div>
-
-              <div
-                aria-label={content.ratingLabel}
-                className="mt-4 flex gap-1 text-[17px] text-gold-500"
-              >
-                {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
-                  <span key={starIndex}>★</span>
-                ))}
-              </div>
-
-              <p className="mt-5 text-[16px] leading-7 text-[#1F2D46] sm:text-[17px]">
-                {testimonial.feeling}
-              </p>
-            </figure>
-          ))}
-        </div>
-
-        <div className="mt-8 flex justify-center gap-2.5">
-          {testimonials.map((testimonial, index) => (
-            <button
-              key={testimonial.name}
-              type="button"
-              aria-label={`${content.title} ${index + 1}`}
-              onClick={() => setCurrentIndex(index)}
-              className={`h-3 rounded-full transition duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-300 ${
-                index === currentIndex ? "w-9 bg-gold-400" : "w-3 bg-white/45 hover:bg-white/70"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
+      <div className="section-shell relative">{contentNode}</div>
     </section>
   );
 }

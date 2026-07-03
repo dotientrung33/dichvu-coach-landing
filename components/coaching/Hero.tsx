@@ -12,24 +12,24 @@ export default function Hero() {
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold-300">
             {hero.eyebrow}
           </p>
-          <h1 className="max-w-4xl font-[var(--font-playfair-display)] text-[34px] font-bold leading-[1.15] tracking-normal text-white sm:text-[42px] sm:leading-[1.12] lg:text-[50px] lg:leading-[1.1]">
+          <h1 className="max-w-4xl font-[var(--font-playfair-display)] text-[30px] font-bold leading-[1.16] tracking-normal text-white sm:text-[36px] sm:leading-[1.14] lg:text-[42px] lg:leading-[1.12]">
             {hero.title}
           </h1>
           {hero.subheadline ? (
-            <p className="mt-5 max-w-3xl text-[19px] font-semibold leading-[1.5] text-gold-300 sm:text-[22px]">
+           <p className="mt-5 max-w-3xl text-[17px] font-semibold leading-relaxed text-gold-300 sm:text-[19px]">
               {hero.subheadline}
             </p>
           ) : null}
-          <p className="mt-5 max-w-3xl text-[16px] leading-7 text-[#EAF2FF] sm:text-[18px] sm:leading-8">
+          <p className="mt-5 max-w-3xl text-[16px] leading-7 text-white/90 sm:text-[18px] sm:leading-8">
             {hero.description}
           </p>
           {hero.trustLine ? (
-            <p className="mt-3 max-w-3xl text-[15px] font-semibold leading-7 text-gold-300/85 sm:text-[16px]">
+            <p className="mt-4 max-w-3xl text-[16px] leading-7 text-white/90 sm:text-[18px] sm:leading-8">
               {hero.trustLine}
             </p>
           ) : null}
           {hero.supportLine ? (
-            <p className="mt-3 max-w-3xl text-[15px] leading-7 text-white/62 sm:text-base">
+            <p className="mt-4 max-w-3xl text-[16px] leading-7 text-white/90 sm:text-[18px] sm:leading-8">
               {hero.supportLine}
             </p>
           ) : null}

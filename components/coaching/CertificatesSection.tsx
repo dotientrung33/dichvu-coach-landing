@@ -4,7 +4,6 @@ import ImageWithFallback from "./ImageWithFallback";
 
 export default function CertificatesSection() {
   const { certificates: certificateContent } = coachingContent;
-  const featuredCertificates = certificates.slice(0, 4);
 
   return (
     <section
@@ -27,13 +26,13 @@ export default function CertificatesSection() {
           </p>
         </div>
 
-        <div className="certificates-grid">
-          {featuredCertificates.map((certificate) => (
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+          {certificates.map((certificate) => (
             <article
               key={certificate.title}
-              className="flex h-full flex-col rounded-[20px] border border-[rgba(0,163,255,0.18)] bg-[linear-gradient(180deg,#071B3F_0%,#04122C_100%)] p-4 text-center shadow-[0_16px_40px_rgba(0,0,0,0.22)] transition duration-200 ease-out hover:-translate-y-[3px] hover:border-[rgba(245,199,106,0.38)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.30),0_0_20px_rgba(0,163,255,0.12)] sm:p-5"
+              className="flex h-full flex-col rounded-[24px] border border-[rgba(0,163,255,0.18)] bg-[linear-gradient(180deg,#071B3F_0%,#04122C_100%)] p-4 text-center shadow-[0_16px_40px_rgba(0,0,0,0.22)] transition duration-200 ease-out hover:-translate-y-[3px] hover:border-[rgba(245,199,106,0.38)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.30),0_0_20px_rgba(0,163,255,0.12)]"
             >
-              <div className="flex aspect-video w-full items-center justify-center rounded-xl bg-[#F8FAFC] p-2.5 sm:p-3">
+              <div className="flex aspect-[4/3] w-full items-center justify-center rounded-[18px] bg-[#F8FAFC] p-2.5 sm:p-3">
                 <ImageWithFallback
                   src={certificate.image}
                   alt={certificate.alt}
@@ -41,12 +40,16 @@ export default function CertificatesSection() {
                   fallbackClassName="h-full w-full"
                 />
               </div>
-              <h3 className="mt-4 text-center text-[16px] font-bold leading-6 text-[#EAF2FF] sm:text-[17px]">
+              <h3 className="mt-4 flex min-h-[56px] items-center justify-center text-[16px] font-bold leading-6 text-[#EAF2FF]">
                 {certificate.title}
               </h3>
             </article>
           ))}
         </div>
+
+        <p className="mx-auto mt-7 max-w-4xl text-center text-[14px] leading-7 text-white/70 sm:text-[15px]">
+          {certificateContent.note}
+        </p>
       </div>
     </section>
   );

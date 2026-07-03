@@ -40,11 +40,11 @@ function PackagePrice({ pkg }: { pkg: CoachingPackage }) {
   return (
     <div className="grid gap-1 lg:justify-items-end">
       {pkg.originalPrice ? (
-        <p className="text-base font-semibold leading-tight text-[#AFC2E6] line-through sm:text-lg lg:text-right">
+        <p className="whitespace-nowrap text-sm font-semibold leading-tight text-[#AFC2E6] line-through sm:text-base lg:text-right">
           {pkg.originalPrice}
         </p>
       ) : null}
-      <p className="text-xl font-bold leading-tight text-white sm:text-[26px] lg:text-right">
+      <p className="whitespace-nowrap text-lg font-bold leading-tight text-white sm:text-[22px] lg:text-right">
         {pkg.price}
       </p>
     </div>
@@ -196,7 +196,7 @@ function VipCard({
         </div>
 
         <div className="grid gap-3 lg:justify-items-end">
-          <p className="text-xl font-bold leading-tight text-white sm:text-[26px] lg:text-right">
+          <p className="whitespace-nowrap text-lg font-bold leading-tight text-white sm:text-[22px] lg:text-right">
             {pkg.price}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row lg:w-full lg:flex-col">
@@ -372,7 +372,7 @@ export default function PackageSummary() {
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gold-300">
             {packages.eyebrow}
           </p>
-          <h2 className="mt-4 text-[28px] font-semibold leading-tight text-white sm:text-[38px]">
+          <h2 className="mt-4 text-[28px] font-semibold leading-tight text-white md:text-[32px] lg:text-[36px]">
             {packages.title}
           </h2>
           <p className="mt-4 w-full text-[18px] font-semibold leading-8 text-gold-300/90 sm:text-[19px]">

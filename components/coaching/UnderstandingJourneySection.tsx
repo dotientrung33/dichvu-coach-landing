@@ -11,7 +11,7 @@ export default function UnderstandingJourneySection() {
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gold-400">
             {understandingJourney.eyebrow}
           </p>
-          <h2 className="mt-3 text-[28px] font-semibold leading-tight text-white sm:text-[36px] lg:text-[38px]">
+          <h2 className="mt-3 text-[28px] font-semibold leading-tight text-white md:text-[32px] lg:text-[36px]">
             {understandingJourney.title}
           </h2>
           <p className="mt-4 w-full text-[17px] leading-8 text-[#EAF2FF] sm:text-[18px]">

@@ -5,7 +5,7 @@ export const coachingContent = {
     { label: "Chuyên gia", href: "#chuyen-gia" },
   ],
   header: {
-    brandEyebrow: "Mr. Thấu Hiểu",
+    brandEyebrow: "Mr. Thấu Hiểu & Cộng sự",
     brandName: "Coaching",
     cta: "Đăng ký ngay",
     logoText: "MT",
@@ -15,7 +15,7 @@ export const coachingContent = {
     register: "Đăng ký",
   },
   hero: {
-    eyebrow: "COACHING 1-1 CÙNG MR. THẤU HIỂU",
+    eyebrow: "COACHING 1-1 CÙNG MR. THẤU HIỂU & CỘNG SỰ",
     title: "Thấu hiểu để kiến tạo hạnh phúc, nâng tầm hiệu suất.",
     subheadline: "Hiểu mình sâu hơn – Gỡ rối đúng vấn đề – Đồng hành đúng hướng.",
     description:
@@ -62,20 +62,6 @@ export const coachingContent = {
       expectedResult: "Kết quả mong đợi",
       role: "Vai trò",
     },
-  },
-  painPoints: {
-    title: "Coaching này dành cho ai?",
-    description:
-      "Dành cho người đang rối trong cảm xúc, mối quan hệ, gia đình, công việc hoặc định hướng sống.",
-    subheading: "Bạn phù hợp nếu đang:",
-    items: [
-      "Biết mình cần thay đổi nhưng chưa biết bắt đầu từ đâu",
-      "Càng nói chuyện với người thân càng thấy xa cách",
-      "Dễ căng thẳng, mất cân bằng hoặc phản ứng quá mức",
-      "Lặp lại một vấn đề cũ trong tình yêu, gia đình hoặc công việc",
-      "Đứng trước quyết định quan trọng nhưng bên trong chưa đủ rõ",
-      "Muốn hiểu mình, hiểu bạn đời, hiểu con hoặc hiểu gia đình sâu hơn",
-    ],
   },
   outcomes: {
     title: "Coaching giúp bạn điều gì?",
@@ -128,41 +114,6 @@ export const coachingContent = {
       },
     ],
   },
-  method: {
-    title: "Phương pháp đồng hành của Mr. Thấu Hiểu",
-    description:
-      "Khác với Coaching thông thường, quá trình đồng hành kết hợp Coaching 1-1, hệ thống Bản đồ Thấu hiểu Con người và các công cụ như DISC, MBTI, NLP để giúp khách hàng nhìn rõ bản thân và vấn đề ở mức sâu hơn.",
-    pillars: [
-      {
-        title: "THẤU HIỂU",
-        description:
-          "Nhìn sâu vào cảm xúc, niềm tin và các mô thức đang vận hành bên trong.",
-      },
-      {
-        title: "SOI CHIẾU",
-        description:
-          "Ứng dụng hệ thống Bản đồ Thấu hiểu Con người giúp nhìn rõ bản thân, mối quan hệ và định hướng phát triển.",
-      },
-      {
-        title: "HÀNH ĐỘNG",
-        description:
-          "Chuyển nhận thức thành hành động thực tế và thay đổi bền vững.",
-      },
-    ],
-    checklist: [
-      "Coaching 1-1 cá nhân hóa theo vấn đề thực tế của từng khách hàng",
-      "Ứng dụng Bản đồ Thấu hiểu Con người để soi chiếu rõ hơn",
-      "Đồng hành có phạm vi, mục tiêu và lộ trình rõ ràng",
-      "Kết hợp chiều sâu cảm xúc với hành động thực tiễn",
-    ],
-  },
-  supportDefinition: {
-    title: "Đồng hành là gì?",
-    description:
-      "“Đồng hành” là quá trình hỗ trợ khách hàng sau và giữa các phiên Coaching trong phạm vi gói đã chọn, bao gồm định hướng thực hành, hỗ trợ hỏi đáp ngắn, nhắc lại mục tiêu và giúp khách hàng bám sát lộ trình.",
-    note:
-      "Đồng hành không có nghĩa là tư vấn không giới hạn. Những vấn đề mới, cần phân tích sâu hoặc vượt ngoài phạm vi ban đầu sẽ được đề xuất thành phiên Coaching riêng hoặc nâng cấp gói.",
-  },
   maps: {
     eyebrow: "CÔNG CỤ HỖ TRỢ COACHING",
     title: "Bản đồ giúp Coaching sâu hơn và cá nhân hóa hơn",
@@ -178,57 +129,23 @@ export const coachingContent = {
       help: "Bản đồ giúp bạn:",
     },
   },
-  journey: {
-    title: "Quy trình đồng hành",
-    description:
-      "Một hành trình Coaching hiệu quả bắt đầu từ việc hiểu đúng vấn đề, soi chiếu đúng điểm và hành động đúng hướng.",
-    steps: [
-      {
-        title: "Đăng ký tư vấn",
-        description:
-          "Bạn để lại thông tin và chia sẻ ngắn về vấn đề hiện tại.",
-      },
-      {
-        title: "Làm rõ nhu cầu",
-        description:
-          "Đội ngũ trao đổi để hiểu nhu cầu và trạng thái hiện tại của bạn.",
-      },
-      {
-        title: "Chọn gói phù hợp",
-        description:
-          "Bạn được gợi ý hình thức Coaching phù hợp với nhu cầu, thời gian và mức độ đồng hành mong muốn.",
-      },
-      {
-        title: "Bắt đầu Coaching",
-        description:
-          "Phiên Coaching tập trung vào lắng nghe, phản chiếu, sử dụng công cụ phù hợp nếu cần.",
-      },
-      {
-        title: "Đồng hành tiếp nếu cần",
-        description:
-          "Bạn nhận định hướng thực hành và có thể tiếp tục theo lộ trình nếu cần đi sâu hơn.",
-      },
-    ],
-    note: "Phương pháp cốt lõi: Thấu hiểu – Soi chiếu – Hành động.",
-  },
-  experts: {
-    eyebrow: "CHUYÊN GIA ĐỒNG HÀNH",
-    title: "Đội ngũ chuyên gia đồng hành cùng bạn",
-    description:
-      "Đồng hành cùng bạn trong những phiên Coaching là các chuyên gia có nhiều năm kinh nghiệm thực chiến trong đào tạo, coaching và thấu hiểu con người. Đội ngũ đã giúp nhiều khách hàng nhìn rõ gốc rễ vấn đề và tạo ra những kết quả chuyển hóa tích cực trong cuộc sống, mối quan hệ và công việc.",
-    specialtiesLabel: "Chuyên môn",
-    credentialsLabel: "Kinh nghiệm / bảo chứng",
-    cta: {
-      title: "Bạn muốn được tư vấn gói phù hợp?",
-      text: "Chia sẻ vấn đề hiện tại, đội ngũ Mr. Thấu Hiểu sẽ gợi ý hành trình Coaching phù hợp với nhu cầu của bạn.",
-      button: "Đăng ký tư vấn",
-    },
-  },
   certificates: {
-    eyebrow: "BẢO CHỨNG CHUYÊN MÔN",
-    title: "Chứng chỉ chuyên môn & nền tảng đồng hành",
+    eyebrow: "CHỨNG NHẬN CHUYÊN MÔN TIÊU BIỂU",
+    title: "Nền tảng chuyên môn & chứng chỉ",
     description:
-      "Các chứng chỉ và nền tảng đào tạo là một phần bảo chứng cho quá trình Coaching, huấn luyện và đồng hành cùng khách hàng.",
+      "Quá trình Coaching được xây dựng trên nền tảng học tập, thực hành và phát triển liên tục trong các lĩnh vực coaching, lãnh đạo, thấu hiểu con người, chữa lành cảm xúc và phát triển cá nhân.",
+    note:
+      "Các chứng nhận là nền tảng hỗ trợ cho quá trình đồng hành. Giá trị cốt lõi của Coaching vẫn nằm ở sự lắng nghe, thực hành và khả năng giúp khách hàng tạo ra thay đổi thực tế.",
+  },
+  community: {
+    eyebrow: "ĐỐI TÁC - KHÁCH HÀNG - CỘNG ĐỒNG",
+    title: "Đồng hành cùng nhiều cá nhân, tổ chức và cộng đồng",
+    description:
+      "Hơn 500 học viên và khách hàng đã tham gia các chương trình đào tạo, coaching và phát triển bản thân cùng Mr. Thấu Hiểu.",
+    partnerTitle: "Đối tác tiêu biểu",
+    galleryTitle: "Khách hàng & cộng đồng đã đồng hành",
+    galleryDescription:
+      "Đồng hành cùng doanh nhân, gia đình, cộng đồng và những cá nhân đang trên hành trình thấu hiểu bản thân, chữa lành cảm xúc và phát triển cuộc sống.",
   },
   testimonials: {
     eyebrow: "FEEDBACK & KHÁCH HÀNG ĐỒNG HÀNH",
@@ -260,13 +177,6 @@ export const coachingContent = {
       package: "Gói quan tâm",
       issue: "Vấn đề đang cần hỗ trợ",
       need: "Kênh liên hệ mong muốn",
-      bankInfo: "Thông tin chuyển khoản",
-      bankName: "Ngân hàng",
-      accountNumber: "Số tài khoản",
-      accountName: "Chủ tài khoản",
-      branch: "Chi nhánh",
-      paymentNote: "Nội dung",
-      selectedPackage: "Gói đang chọn",
     },
     placeholders: {
       name: "Nguyễn Văn A",
@@ -279,13 +189,6 @@ export const coachingContent = {
       contact: "Vui lòng nhập số điện thoại hoặc Zalo.",
       issue: "Vui lòng mô tả ngắn vấn đề đang cần hỗ trợ.",
     },
-  },
-  finalCta: {
-    title: "Bạn không cần phải đi một mình.",
-    body: [
-      "Đôi khi chỉ cần một góc nhìn đúng, mọi thứ có thể trở nên rõ ràng hơn.",
-    ],
-    button: "Đặt lịch Coaching cùng Mr. Thấu Hiểu",
   },
   contactButtons: {
     zalo: "Chat Zalo",
